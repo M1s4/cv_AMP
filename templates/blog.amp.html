@@ -163,12 +163,13 @@ limitations under the License.
   }
 
   /* sample styles */
-  .sample-form {
-    padding: 0 var(--space-2);
-  }
+ input{
+   width: 100%;
+ }
+
   .sample-form > * {
     margin: var(--space-1);
-  }
+  } 
   .sample-heading {
     margin: 0 var(--space-3);
     margin-top: var(--space-3);
@@ -184,8 +185,8 @@ limitations under the License.
   amp-social-share.close-button {
     padding:20px 20px;    
     border-radius: 20px;
-    background-color:white;
-    background-image: url('https://www.flaticon.es/svg/static/icons/svg/106/106830.svg');
+    background-color:transparent;
+    background-image: url('https://www.flaticon.es/svg/static/icons/svg/1828/1828666.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -199,9 +200,59 @@ limitations under the License.
     background-color:transparent;
     margin: 0px 0px 0px auto;
   }
+  
+  form.sample-form.i-amphtml-form {
+    width: calc(100% - 100px);
+    margin: 0px auto;
+  }
+  input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: .5px solid white;
+    padding: 28px 0px;
+    color: white;
+}
+input.user-invalid.valueMissing {
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: .5px solid white !important;
+    padding: 30px 0px !important;
+    color: white !important;
+}
+
+.input[type="email"] {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: .5px solid white !important;
+    padding: 30px 0px !important;
+}
+
+input.nombre-form {
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: .5px solid white !important;
+    padding: 30px 0px !important;
+    color: white !important;
+}
+
+input.btn-envier-form {
+  width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #E6E6E6;
+    color: #737373;
+    margin-top: 35px;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:#F2F2F2;
+  opacity: 1; /* Firefox */
+}
 
 
-    
+li.ampstart-nav-item {
+    margin: 50px 0px 40px 0px!important;
+}
     /*fin estilo modal*/
 
     h1 {
@@ -2373,16 +2424,21 @@ limitations under the License.
         method="post"
         action-xhr="/documentation/examples/api/submit-form-input-text-xhr"
         target="_top">
-        <input type="text"
-          name="name"
+        <input type="text" name="name"
           placeholder="Name..."
           required>
         <input type="email"
+        class="nombre-form"
           name="email"
           placeholder="Email..."
           required>
+          <input type="text"
+          name="mensaje"
+          placeholder="mensaje"
+          required>
         <input type="submit"
-          value="Subscribe">
+          value="Subscribe"
+          class="btn-envier-form">
         <div submit-success>
           <template type="amp-mustache">
             Success! Thanks {{name}} for trying the <code>amp-form</code> demo! Try to insert the word "error" as a name input in the form to see how <code>amp-form</code> handles errors.
@@ -2417,38 +2473,11 @@ limitations under the License.
         class="ampstart-navbar-trigger items-start">✖</div>
     </div>
     <nav class="ampstart-sidebar-nav ampstart-nav">
-      <ul class="list-reset m0 p0 ampstart-label">
-        <li class="ampstart-nav-item ampstart-nav-dropdown relative ">
-
-          <!-- Start Dropdown-inline -->
-          <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown">
-            <section>
-              <header>Fashion</header>
-              <ul class="ampstart-dropdown-items list-reset m0 p0">
-                <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Styling Tips</a></li>
-                <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Designers</a></li>
-              </ul>
-            </section>
-          </amp-accordion>
-          <!-- End Dropdown-inline -->
-        </li>
-        <li class="ampstart-nav-item "><a class="ampstart-nav-link" href="#">Travel</a></li>
-        <li class="ampstart-nav-item ampstart-nav-dropdown relative ">
-
-          <!-- Start Dropdown-inline -->
-          <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown">
-            <section>
-              <header>Food</header>
-              <ul class="ampstart-dropdown-items list-reset m0 p0">
-                <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Recipes</a></li>
-                <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Hosting Tips</a></li>
-              </ul>
-            </section>
-          </amp-accordion>
-          <!-- End Dropdown-inline -->
-        </li>
-        <li class="ampstart-nav-item "><a class="ampstart-nav-link" href="#">Beauty</a></li>
-        <li class="ampstart-nav-item "><a class="ampstart-nav-link" href="#">Shop</a></li>
+      <ul class="list-reset m0 p0 ampstart-label">    
+        <li class="ampstart-nav-item "><a class="ampstart-nav-link" href="#">Inicio</a></li>       
+        <li class="ampstart-nav-item "><a class="ampstart-nav-link" href="#">Experiencia</a></li>
+        <li class="ampstart-nav-item "><a class="ampstart-nav-link" href="#">Educacion</a></li>
+        <li class="ampstart-nav-item "><a class="ampstart-nav-link" href="#">Portafolio </a></li>
       </ul>
     </nav>
 
@@ -2456,13 +2485,15 @@ limitations under the License.
 
     <ul class="ampstart-social-follow list-reset flex justify-around items-center flex-wrap m0 mb4">
       <li>
-        <a href="#" target="_blank" class="inline-block p1" aria-label="Link to AMP HTML Twitter"><svg
+        <a href="#" target="_blank" class="inline-block p1" aria-label="Link to AMP HTML Twitter">
+          <svg
             xmlns="http://www.w3.org/2000/svg" width="24" height="22.2" viewBox="0 0 53 49">
             <title>Twitter</title>
             <path
               d="M45 6.9c-1.6 1-3.3 1.6-5.2 2-1.5-1.6-3.6-2.6-5.9-2.6-4.5 0-8.2 3.7-8.2 8.3 0 .6.1 1.3.2 1.9-6.8-.4-12.8-3.7-16.8-8.7C8.4 9 8 10.5 8 12c0 2.8 1.4 5.4 3.6 6.9-1.3-.1-2.6-.5-3.7-1.1v.1c0 4 2.8 7.4 6.6 8.1-.7.2-1.5.3-2.2.3-.5 0-1 0-1.5-.1 1 3.3 4 5.7 7.6 5.7-2.8 2.2-6.3 3.6-10.2 3.6-.6 0-1.3-.1-1.9-.1 3.6 2.3 7.9 3.7 12.5 3.7 15.1 0 23.3-12.6 23.3-23.6 0-.3 0-.7-.1-1 1.6-1.2 3-2.7 4.1-4.3-1.4.6-3 1.1-4.7 1.3 1.7-1 3-2.7 3.6-4.6"
               class="ampstart-icon ampstart-icon-twitter"></path>
-          </svg></a>
+          </svg>
+        </a>
       </li>
       <li>
         <a href="#" target="_blank" class="inline-block p1" aria-label="Link to AMP HTML Facebook"><svg
@@ -2493,10 +2524,7 @@ limitations under the License.
       </li>
     </ul>
 
-    <ul class="ampstart-sidebar-faq list-reset m0">
-      <li class="ampstart-faq-item"><a href="#" class="text-decoration-none">About</a></li>
-      <li class="ampstart-faq-item"><a href="#" class="text-decoration-none">Contact</a></li>
-    </ul>
+  
   </amp-sidebar>
   <!-- End Sidebar -->
   <!-- End Navbar -->
