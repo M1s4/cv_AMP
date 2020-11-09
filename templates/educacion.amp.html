@@ -21,11 +21,12 @@ limitations under the License.
 <head>
   <meta charset="utf-8">
   <title>The Recipe Blog</title>
-  <link rel="canonical" href="https://www.ampstart.com/templates/blog.amp">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <meta name="amp-google-client-id-api" content="googleanalytics">
+  
 
   <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 
 
 
@@ -163,7 +164,7 @@ limitations under the License.
       width: 100%;
     height: 50px;
     border: none;
-    background-color: #9FB4CC;
+    background-color: #7DB3DF;
     color: #F2F2F2;
     margin-top: 35px;
     letter-spacing: .5em;
@@ -819,79 +820,113 @@ limitations under the License.
         padding:20px 0px 20px 0px;
       }
 
+      .blue-box, .red-box, .green-box {
+      width: 100%;
+      height:500px;
+        }
+        .blue-box {
+        color: #31353D;
+        padding: 27px 30px;
+        text-align: justify;
+        }
+        .green-box {
+        background: green;
+        color: #fff;
+        }
+        .red-box {
+        background: red;
+        color: #111;
+        }
+        #custom-button .amp-carousel-button-prev {
+        left: 5%;
+        background-image: url('https://amp.dev/static/samples/img/carousel-arrow-left.png');
+        }
+        #custom-button .amp-carousel-button-next {
+        right: 5%;
+        background-image: url('https://amp.dev/static/samples/img/carousel-arrow-right.png');
+        }
+        .nombre-user {
+            text-align: left;
+            padding: 17px 0px 4px 0px;
+            border-bottom: 3px solid;
+            margin: 10px 10px;
+            width: 180px;
+            background-image: url(https://www.flaticon.es/svg/static/icons/svg/581/581657.svg) !important;
+            background-position-x: right;
+            background-position-y: 5px;
+            background-size: 35px;
+            font-family: monospace;
+            background-repeat: no-repeat;
+            font-weight: 900;
+            height: 50px;
+        }
+            amp-carousel.i-amphtml-element.i-amphtml-layout-fixed-height.i-amphtml-layout-size-defined.i-amphtml-slidescroll.i-amphtml-built.i-amphtml-layout {
+            height: 450px !important;
+        }
+        .blue-box h4 {
+          font-size: 21px;
+          font-weight: 900;
+          font-family: system-ui;
+          text-align: left;
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Escudo_UdeG.svg/1200px-Escudo_UdeG.svg.png);
+          background-size: 38px;
+          background-repeat: no-repeat;
+          background-position-y: bottom;
+          background-position-x: right;
+          padding-right: 30px;
+        }
+        p.text-puesto {
+          font-size: 16px;
+          font-weight: 400;
+          padding: 5px 0px 15px 0px;
+          text-align: left;
+        }
      }
   </style>
 </head>
 
-<body>
+<body class="amp-mode-touch" style="opacity: 1; visibility: visible; animation: 0s ease 0s 1 normal none running none;" cz-shortcut-listen="true">
 
-  <!-- Start Navbar -->
-  <header class="ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr2 ">
-    <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0"
-      class="ampstart-navbar-trigger  pr2  ">☰
-    </div>
-    
-    <amp-lightbox id="quote-lb" layout="nodisplay" class="lightbox">
-    
-      <amp-social-share class=" close-button"
-      on="tap:quote-lb.close"      
-      aria-label="close modal "
-      type="text"
-      width="40"
-      height="40">
-    </amp-social-share>
-
-      <form class="sample-form"
-        method="post"
-        action-xhr="/documentation/examples/api/submit-form-input-text-xhr"
-        target="_top">
-        <input type="text" name="name"
-          placeholder="Name..."
-          required>
-        <input type="email"
-        class="nombre-form"
-          name="email"
-          placeholder="Email..."
-          required>
-          <label for="">Escribe tu texto</label>
-          <textarea id="w3review" name="w3review" rows="4" cols="50" placeholder="Escribe tu duda aqui..." ></textarea>
-          
-        <input type="submit"
-          value="ENVIAR"
-          class="btn-envier-form">
-        <div submit-success>
-          <template type="amp-mustache">
-            Success! Thanks {{name}} for trying the <code>amp-form</code> demo! Try to insert the word "error" as a name input in the form to see how <code>amp-form</code> handles errors.
-          </template>
-        </div>
-        <div submit-error>
-          <template type="amp-mustache">
-            Error! Thanks {{name}} for trying the <code>amp-form</code> demo with an error response.
-          </template>
-        </div>
-      </form>
-    </amp-lightbox>
-    <amp-img
-    class="icon-title  mr2"
-      alt="A view of the sea"
-      src="https://www.flaticon.es/svg/static/icons/svg/1092/1092004.svg"
-      width="20"
-      height="20"
-      layout="responsive"
-     >
-    </amp-img>
-
-    
-      <amp-social-share class="rounded custom-style"
-        on="tap:quote-lb"
-        aria-label="Share by email "
-        type="text"
-        width="40"
-        height="40">
+    <!-- Start Navbar -->
+    <header class="ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr2 ">
+      <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger  pr2  ">☰
+      </div>
+      
+      <amp-lightbox id="quote-lb" layout="nodisplay" class="lightbox i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-overlay i-amphtml-built" hidden="" i-amphtml-layout="nodisplay">
+      
+        <amp-social-share class="close-button i-amphtml-element i-amphtml-notbuilt amp-notbuilt i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-error" on="tap:quote-lb.close" aria-label="close modal " type="text" width="40" height="40" i-amphtml-layout="fixed" style="width: 40px; height: 40px;">
       </amp-social-share>
-
-  </header>
-
+  
+        <form class="sample-form i-amphtml-form" method="post" action-xhr="/documentation/examples/api/submit-form-input-text-xhr" target="_top" novalidate="">
+          <input type="text" name="name" placeholder="Name..." required="">
+          <input type="email" class="nombre-form" name="email" placeholder="Email..." required="">
+            <label for="">Escribe tu texto</label>
+            <textarea id="w3review" name="w3review" rows="4" cols="50" placeholder="Escribe tu duda aqui..."></textarea>
+            
+          <input type="submit" value="ENVIAR" class="btn-envier-form">
+          <div submit-success="">
+            <template type="amp-mustache">
+              Success! Thanks {{name}} for trying the <code>amp-form</code> demo! Try to insert the word "error" as a name input in the form to see how <code>amp-form</code> handles errors.
+            </template>
+          </div>
+          <div submit-error="">
+            <template type="amp-mustache">
+              Error! Thanks {{name}} for trying the <code>amp-form</code> demo with an error response.
+            </template>
+          </div>
+        </form>
+      </amp-lightbox>
+      
+      
+        <amp-social-share class="rounded custom-style i-amphtml-element i-amphtml-notbuilt amp-notbuilt i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-error" on="tap:quote-lb" aria-label="Share by email " type="text" width="40" height="40" i-amphtml-layout="fixed" style="width: 40px; height: 40px;">
+        </amp-social-share>
+  
+      
+      
+  
+    </header>
+  
+    <!-- Start Sidebar -->
   <!-- Start Sidebar -->
   <amp-sidebar id="header-sidebar" class="ampstart-sidebar px3  " layout="nodisplay">
     <div class="flex justify-start items-center ampstart-sidebar-header">
@@ -950,96 +985,94 @@ limitations under the License.
       </li>
     </ul>  
   </amp-sidebar>
-  <!-- End Sidebar -->
-  <!-- End Navbar -->
-  <main id="content" role="main" class="">
-    <article class="recipe-article">
-      <header>
-        <div class="content-img-perfil">
-          <amp-img src="../img/misa-img.svg" width="80px" height="80px" layout="responsive" alt="The final spritzer"
-          class="mt5 imagen-user">
-         </amp-img>
-        </div>
+    <!-- End Sidebar -->
+    <!-- End Navbar -->
+    <main id="content" role="main" class="">
+      <article class="recipe-article">
+        <header>
+          
+          
+          <h3 class="mb1 px3 nombre-user">Educacion</h3>
+  
+          <!-- Start byline -->
+          
+          <!-- End byline -->
+        </header>  
         
-        <h3 class="mb1 px3 nombre-user">Misael Gutierrez Lopez</h3>
-
-        <!-- Start byline -->
-        <address class="ampstart-byline clearfix mb2 px3 h5 mt2">
-         
-          <time class="ampstart-byline-pubdate block bold " datetime="2016-12-13">Desarrollador web FullStack</time>
-          <amp-img
-          class="icon-title  "
-            alt="A view of the sea"
-            src="https://www.flaticon.es/svg/static/icons/svg/3076/3076294.svg"
-            width="20"
-            height="20"
-            layout="responsive"
-           >
-          </amp-img>
-        </address>
-        <!-- End byline -->
-      </header>
-      <p class=" px3 data-text">
-        Soy un desarrollador web autodidacta apasionado por las tecnologías y la seguridad informática,
-         tengo experiencia en Backend y Frontend utilizando Frameworks como Laravel con Vue, Wordpress (custom) , 
-         Websockets con pusher, AMP, actualmente sigo tomando cursos en linea y me encanta aprender  
-      </p>
-
-      <div class="content-icons-languajes px3 pt4">
-
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-laravel.svg" width="22px" height="20px" alt="">
-        </a>
-
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-api.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-css.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-html.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-js.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-mysq.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-php.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-vue.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-wordpress.svg" width="22px" height="20px" alt="">
-        </a>
-        <a href="" class="content-icon-lenguaje">
-          <img src="../img/icons/icon-amp..svg" width="22px" height="20px" alt="">
-        </a>
-
-
-      </div>
-    </article>
-  </main>
-
-  <!-- Start Footer -->
-  <footer class="ampstart-footer flex flex-column items-center px3">
-
-
-    <nav class="ampstart-footer-nav">
-      <ul class="list-reset flex flex-wrap mb2">
-        <li class="px1"><a class="text-decoration-none ampstart-label" href="#">Acerca de</a></li>
-        <li class="px1"><a class="text-decoration-none ampstart-label" href="#">Contacto</a></li>
-        <li class="px1"><a class="text-decoration-none ampstart-label" href="#">Portafolio</a></li>
-      </ul>
-    </nav>
-    <small>
-      © Derechos reservados, 2020
-    </small>
-  </footer>
-  <!-- End Footer -->
-</body>
-
+        <amp-carousel height="300" layout="fixed-height" type="slides" role="region" aria-label="Carousel with arbitrary HTML content " >
+            <div class="content-profesion">
+              <div class="blue-box">
+                <h4>Centro Universitario de la Costa CUC.</h4>
+                <p class="text-puesto">
+                    Ing. Telematica 
+                </p>
+                <p class="detalles-puesto">
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+                    Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
+                    cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
+                    galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
+                    No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                    electrónicos, quedando esencialmente igual al original.
+                </p>
+              </div>
+            </div>
+            <div class="content-profesion">
+                <div class="blue-box">
+                  <h4>MIJO BRANDS</h4>
+                  <p class="text-puesto">
+                      Web developer jr. - 2018
+                  </p>
+                  <p class="detalles-puesto">
+                      Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+                      Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
+                      cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
+                      galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
+                      No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                      electrónicos, quedando esencialmente igual al original.
+                  </p>
+                </div>
+            </div>
+            <div class="content-profesion">
+                <div class="blue-box">
+                  <h4>MIJO BRANDS</h4>
+                  <p class="text-puesto">
+                      Web developer jr. - 2018
+                  </p>
+                  <p class="detalles-puesto">
+                      Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+                      Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
+                      cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
+                      galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
+                      No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos 
+                      electrónicos, quedando esencialmente igual al original.
+                  </p>
+                </div>
+            </div>           
+        </amp-carousel>   
+  
+        
+      </article>
+  
+  
+    </main>
+  
+    <!-- Start Footer -->
+    <footer class="ampstart-footer flex flex-column items-center px3">
+  
+  
+      <nav class="ampstart-footer-nav">
+        <ul class="list-reset flex flex-wrap mb2">
+          <li class="px1"><a class="text-decoration-none ampstart-label" href="#">Acerca de</a></li>
+          <li class="px1"><a class="text-decoration-none ampstart-label" href="#">Contacto</a></li>
+          <li class="px1"><a class="text-decoration-none ampstart-label" href="#">Portafolio</a></li>
+        </ul>
+      </nav>
+      <small>
+        © Derechos reservados, 2020
+      </small>
+    </footer>
+    <!-- End Footer -->
+  
+  
+  </body>
 </html>
